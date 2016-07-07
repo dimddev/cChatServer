@@ -1,0 +1,2 @@
+#define cChatServer_VERSION_MAJOR @cChatServer_VERSION_MAJOR@
+#define cChatServer_VERSION_MINOR @cChatServer_VERSION_MINOR@
