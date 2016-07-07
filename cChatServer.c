@@ -22,23 +22,15 @@ int main(int argc, char *argv[]) {
     Config_T conf;
     struct sockaddr_in server, client;
 
-    if (argc > 1) {
+    conf = Read_Config(config_file, conf);
+    printf("%s\n", conf.server_name);
+    printf("%d\n", conf.port);
 
-        printf("Argc: %d", argc);
-        printf("%s\n", argv[argc]);
-
-    } else {
-
-        conf = Read_Config(config_file, conf);
-        printf("%s\n", conf.server_name);
-        printf("%d\n", conf.port);
-
-        Init_Server(&server);
-        server_desc = Create_Socket();
-        Server_Bind(server, server_desc);
-        Server_Listen(server_desc);
-        Server_Messages(server_desc, client);
-    }
+    Init_Server(&server);
+    server_desc = Create_Socket();
+    Server_Bind(server, server_desc);
+    Server_Listen(server_desc);
+    Server_Messages(server_desc, client);
 
     return 0;
 
